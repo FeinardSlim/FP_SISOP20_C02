@@ -91,13 +91,14 @@ int main(int argc, char const *argv[])
 	int maxLine = 0;
 	char *pch = strtok(buf1, " \n");
 	int temp = 0;
+	maxLine = 0;
 	while (pch != NULL)
 	{
 		strcpy(datafile1[temp].array,pch);
 		pch = strtok(NULL," \n");
 		temp++;
 	}
-	maxLine = 0;
+	maxLine = temp;
 	temp = 0;
 	char *data = strtok(buf2," \n");
 	while (data != NULL)
@@ -107,7 +108,7 @@ int main(int argc, char const *argv[])
 		temp++;
 	}
 	if(temp < maxLine) maxLine = temp;
-	int  i =0;
+	int  i = 0;
 	while (i < maxLine)
 	{
 		printf(1,"%s %s\n",datafile1[i].array,datafile2[i].array);
