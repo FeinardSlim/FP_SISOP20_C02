@@ -107,16 +107,32 @@ int main(int argc, char *argv[])
     }
     else{
         if(strcmp(argv[1],"-d") == 0){
-            flag = 1;
-            depth = 10000;
-            ls(argv[2],0);
+            if(argc == 2)
+            {
+                flag = 1;
+                depth = 10000;
+                ls(".",0);
+            }
+            else{
+                flag = 1;
+                depth = 10000;
+                ls(argv[2], 0);
+            }
         }
         else if (strcmp(argv[1],"-L") == 0)
         {
-            int temp = atoi(argv[3]);
-            depth = temp;
-            printf(2,"%d",depth);
-            ls(argv[2], 0);
+            if (argc == 3)
+            {
+                int temp = atoi(argv[2]);
+                depth = temp;
+                ls(".", 0);
+            }
+            else
+            {
+                int temp = atoi(argv[3]);
+                depth = temp;
+                ls(argv[2], 0);
+            }
         }
         else
         {
