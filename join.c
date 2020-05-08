@@ -88,7 +88,7 @@ int main(int argc, char const *argv[])
 	}
 	read(file1, buf1, sizeof(buf1));
 	read(file2, buf2, sizeof(buf2));
-
+	int maxLine = 0;
 	char *pch = strtok(buf1, " \n");
 	int temp = 0;
 	while (pch != NULL)
@@ -97,6 +97,7 @@ int main(int argc, char const *argv[])
 		pch = strtok(NULL," \n");
 		temp++;
 	}
+	maxLine = 0;
 	temp = 0;
 	char *data = strtok(buf2," \n");
 	while (data != NULL)
@@ -105,14 +106,13 @@ int main(int argc, char const *argv[])
 		data = strtok(NULL," \n");
 		temp++;
 	}
+	if(temp < maxLine) maxLine = temp;
 	int  i =0;
-	while (i < temp)
+	while (i < maxLine)
 	{
 		printf(1,"%s %s\n",datafile1[i].array,datafile2[i].array);
 		i++;
 	}
-	
-	
 	
 	close(file1);
 	close(file2);
